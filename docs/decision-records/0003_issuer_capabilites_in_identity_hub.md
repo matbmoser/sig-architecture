@@ -58,6 +58,7 @@ Issuer Service will be merged with the Identity Hub repository. The issuer servi
 - Will support in the future self-issuance of product credentials, for use cases like the DPP-Verification and PCF-Verfication (Data Trust & Security KIT):
   - https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification
 - It can be still split in the future again if needed
+- The images can be published separately still and enabled and disabled in the helm charts.
 
 ### Actions
 
@@ -67,8 +68,10 @@ Issuer Service will be merged with the Identity Hub repository. The issuer servi
    - PR: https://github.com/eclipse-tractusx/tractusx-identityhub/pull/65
 - Create an Issue to deprecate the issuer servcice:
    - https://github.com/eclipse-tractusx/tractusx-issuerservice/issues/72
+- Publish both issuer service and holder capabilities from the identity hub in different images.
 
 
 ### Consequences
 
-{{ list all indirect implications of the decision, e.g. deprecation of a component }}
+- The issuer service repo will be deprecated
+- Identity Hub users will need to enable and disable the runtimes from the identity hub issuer capabilties.
