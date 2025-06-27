@@ -45,15 +45,18 @@ The distribution will be modularised in such a way that the issuer capabilities 
 
 ### Solution 2: Keep wallet and issuer separate
 
-### Solution 3: Modularise the tractusx-identityhub, such that it can be spun up in- or excluding issuer capabilities
+Issuer capabilities could be kept separated, but it would increase the complexity for maintaining and doing releases of the different components.
 
 ## Decision: Solution 1
 
-Issuer Service will be merged with the Identity Hub repository. The issuer service repo (based on the upstream framework) will be deprecated.
-
+Issuer Service will be merged with the Identity Hub repository.  
+The [tractusx-issuerservice repo](https://github.com/eclipse-tractusx/tractusx-issuerservice) (based on the upstream framework) will be deprecated. 
 ### Rationale
 
-- To make easier the deployment of the Tractus-X Identity Hub and also ease the maintainance of the product, which will not be split in different repositories. Making easier for the committers to stabilize the wallet and its runtime deployments.
+- having one repository makes both deployment and maintenance easier  
+- this solution is consistent with the upstream [EDC Identity Hub](https://github.com/eclipse-edc/IdentityHub), which also does not separate issuer capabilities into its own service.  
+- an increasing number of use cases (e.g. DPP, PCF, CCM) will require regular participants to have issuer capabilities  
+- the images can be published separately still and enabled and disabled in the helm charts
 - In the upstream EDC Identity Hub the both capabilities are included in the same repository, so it would also be consitent.
 - Will support in the future self-issuance of product credentials, for use cases like the DPP-Verification and PCF-Verfication (Data Trust & Security KIT):
   - https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification
@@ -62,16 +65,18 @@ Issuer Service will be merged with the Identity Hub repository. The issuer servi
 
 ### Actions
 
-- Create an issue in the Identity Hub:
-   - There is an issue already created to work on that: https://github.com/eclipse-tractusx/tractusx-identityhub/issues/50
-- Create a PR with the changes:
-   - PR: https://github.com/eclipse-tractusx/tractusx-identityhub/pull/65
-- Create an Issue to deprecate the issuer servcice:
-   - https://github.com/eclipse-tractusx/tractusx-issuerservice/issues/72
-- Publish both issuer service and holder capabilities from the identity hub in different images.
+- deprecate the [tractusx-issuerservice](https://github.com/eclipse-tractusx/tractusx-issuerservice)  
+- integrate issuer capabilities into the [tractusx-identityhub](https://github.com/eclipse-tractusx/tractusx-identityhub)  
+- publish two images: one including and one excluding issuer capabilities  
 
 
 ### Consequences
 
 - The issuer service repo will be deprecated
-- Identity Hub users will need to enable and disable the runtimes from the identity hub issuer capabilties.
+- Identity Hub users will need to enable and disable the runtimes from the identity hub issuer capabilties.  
+
+## NOTICE  
+
+- SPDX-FileCopyrightText: 2025 Contributors to the Eclipse Foundation  
+- Source URL: https://github.com/eclipse-tractusx/sig-architecture  
+
