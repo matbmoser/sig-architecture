@@ -57,8 +57,6 @@ The [tractusx-issuerservice repo](https://github.com/eclipse-tractusx/tractusx-i
 - this solution is consistent with the upstream [EDC Identity Hub](https://github.com/eclipse-edc/IdentityHub), which also does not separate issuer capabilities into its own service.  
 - an increasing number of use cases (e.g. DPP, PCF, CCM) will require regular participants to have issuer capabilities  
 - the images can be published separately still and enabled and disabled in the helm charts
-- In the upstream EDC Identity Hub the both capabilities are included in the same repository, so it would also be consitent.
-- Will support in the future self-issuance of product credentials, for use cases like the DPP-Verification and PCF-Verfication (Data Trust & Security KIT):
   - https://github.com/eclipse-tractusx/digital-product-pass/tree/main/dpp-verification
 - It can be still split in the future again if needed
 - The images can be published separately still and enabled and disabled in the helm charts.
